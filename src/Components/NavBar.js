@@ -104,7 +104,8 @@ const NavBar = () => {
                   bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700
                   focus:shadow-outline focus:outline-none"
                   arial-label="Sign up"
-                  title="Sign up"></a>
+                  title="Sign up">Connect Wallet
+                  </a>
                 </li>
               </ul>
             </nav>
