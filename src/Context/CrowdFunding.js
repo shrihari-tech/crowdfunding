@@ -43,7 +43,9 @@ export const CrowdFundingprovider = ({children})=>{
     }
 
     const getCampaigns = async()=>{
+        // const provider = new ethers.providers.JsonRpcProvider();
         const provider = new ethers.providers.JsonRpcProvider();
+
         const contract = fetchContract(provider);
         const campaigns = await contract.getCampaigns();
         const parsedCampaigns = campaigns.map((campaign,i)=>({

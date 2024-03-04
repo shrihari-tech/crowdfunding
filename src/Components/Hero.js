@@ -98,7 +98,87 @@ const Hero = ({titleData, createCampaign}) =>{
                                         >
                                             Description
                                         </label>
+                                        <input 
+                                            onChange={(e)=>setCampaign({
+                                                ...campaign,
+                                                description:e.target.value,
+                                            })
+                                        }
+                                        placeholder="description"
+                                        required
+                                        type="text"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition 
+                                        duration-200 bg-white border border-gray-300 rounded shadow-sm
+                                        appearance-none focus:border-deep-purple-accent-400
+                                        focus:outline-none focus:shadow-outline"
+                                        id="lastName"
+                                        name="lastName"
+                                        />
                                     </div>
+                                    <div className="mb-1 sm:mb-2">
+                                        <label 
+                                            htmlFor="email"
+                                            className="inline-block mb-1 font-medium"
+                                        >Target amount
+                                        </label>
+                                        <input 
+                                            onChange={(e)=>setCampaign({
+                                                ...campaign,
+                                                amount:e.target.value,
+                                            })
+                                        }
+                                        placeholder="amount"
+                                        required
+                                        type="text"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition
+                                        duration-200 bg-white border border-gray-300 rounded shadow-sm
+                                        apperance-none focus:border-deep-purple-accent-400
+                                        focus:outline-none focus:shadow-outline"
+                                        id="email"
+                                        name="email"
+                                        />
+                                    </div>
+                                    <div className="mb-1 sm:mb-2">
+                                        <label 
+                                            htmlFor="email"
+                                            className="inline-block mb-1 font-medium"
+                                        >
+                                           Target Amount 
+                                        </label>
+                                        <input 
+                                            onChange={(e)=>
+                                            setCampaign({
+                                                ...campaign,
+                                                deadline:e.target.value,
+                                            })
+                                        }
+                                        placeholder="Date"
+                                        required
+                                        type="date"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition
+                                        duration-200 bh-white border border-gray-300 rounded shadow-sm
+                                        appearance-none focus:border-deep-purple-accent-400
+                                        focus:outline-none focus:shadow-outline"
+                                        id="email"
+                                        name="email"
+                                        />
+                                    </div>
+                                    <div className="mt-4 mb-2 sm:mb-4">
+                                        <button
+                                            onClick={(e)=>createNewCampaign(e)}
+                                            type="submit"
+                                            className="inline-flex items-center justify-center w-full h-12
+                                            px-6 font-medium tracking-wide text-white transition duration-200
+                                            rounded shadow-md bd-deep-purple-accent-400
+                                            hover:bg-dep-purple-accent-700 focus:shadow-outline
+                                            focus:outline-none newColor"
+                                        >
+                                            Create Campaign
+                                        </button>
+                                    </div>
+                                    <p className="text-xs text-gray-600 sm:text-sm">
+                                        Create Campaign for Fund
+                                    </p>
                                 </form>
                             </div>
                         </div>
@@ -106,7 +186,7 @@ const Hero = ({titleData, createCampaign}) =>{
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Hero;
