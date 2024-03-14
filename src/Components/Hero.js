@@ -48,11 +48,11 @@ const Hero = ({titleData, createCampaign}) =>{
                             <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
                                 Send to your Crypto to Public or Requested Campaign
                             </p>
-                            <a href="/"
+                            <a href="https://en.wikipedia.org/wiki/Crowdfunding"
                                 aria-label=""
                                 className="inline-flex items-center font-semibold tracking-wider
                                 transition-colors duration-200 text-teal-accent-400 
-                                hover:text-teal-accent-700 text-gry-200">Learn More
+                                hover:text-teal-accent-700 text-blue-200 ">Learn More
                                 <svg className="inline-block w-3 ml-2"
                                 fill="currentColor"
                                 viewBox="0 0 12 12"

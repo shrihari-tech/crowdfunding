@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from "react";
 import Web3Modal from "web3modal";
+// import {ethers} from "ethers";
 import { ethers } from "ethers";
+
 
 
 import { CrowdFundingABI,CrowdFundingAddress } from "./contants";
@@ -44,7 +46,8 @@ export const CrowdFundingprovider = ({children})=>{
 
     const getCampaigns = async()=>{
         // const provider = new ethers.providers.JsonRpcProvider();
-        const provider = new ethers.providers.JsonRpcProvider();
+        console.log("Getting Error");
+        const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
 
         const contract = fetchContract(provider);
         const campaigns = await contract.getCampaigns();
@@ -63,7 +66,7 @@ export const CrowdFundingprovider = ({children})=>{
     };
 
     const getUserCampaigns = async()=>{
-        const provider = new ethers.providers.JsonRpcProvider();
+        const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
         const contract = fetchContract(provider);
         const allCampaigns =await contract.getCampaigns();
         const accounts = await window.ethereum.request({
@@ -72,7 +75,7 @@ export const CrowdFundingprovider = ({children})=>{
         const currentUser = accounts[0];
         const filteredCampaigns = allCampaigns.filter(
             (campaign)=>
-                campaign.owner === process.env.OWNER
+                campaign.owner === "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 
         );
 
@@ -106,7 +109,7 @@ export const CrowdFundingprovider = ({children})=>{
     };
 
     const getDonations = async(pId)=>{
-        const provider = new ethers.providers.JsonRpcProvider();
+        const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
         const contract = fetchContract(provider);
         const donations = await contract.getDonators(pId);
         const numberOfDonations = donations[0].length;
