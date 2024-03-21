@@ -27,7 +27,7 @@ const Card=({allcampaign,setOpenModel,setDonate,title})=>{
                     />
                     <div className="py-5 pl-2">
                         <p className="mb-2 text-xs font-semiboild text-gray-600 uppercase">
-                            daysLeft:{daysLeft(campaign.deadline)}
+                            DaysLeft:{daysLeft(campaign.deadline)}
                         </p>
                         <a href="/"
                         aria-label="Articel"
