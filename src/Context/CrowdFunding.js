@@ -47,10 +47,13 @@ export const CrowdFundingprovider = ({children})=>{
     const getCampaigns = async()=>{
         // const provider = new ethers.providers.JsonRpcProvider();
         console.log("Getting Error");
-        const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
+        const web3Modal = new Web3Modal();
+        const connection = await web3Modal.connect();
+        const provider = new ethers.providers.Web3Provider(connection);
 
         const contract = fetchContract(provider);
         const campaigns = await contract.getCampaigns();
+        console.log(campaigns);
         const parsedCampaigns = campaigns.map((campaign,i)=>({
             owner:campaign.owner,
             title:campaign.title,
@@ -62,11 +65,15 @@ export const CrowdFundingprovider = ({children})=>{
             ),
             pId:i,
         }));
-        return parsedCampaigns;
+        return campaigns;
     };
 
     const getUserCampaigns = async()=>{
-        const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
+        // const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
+        const web3Modal = new Web3Modal();
+        const connection = await web3Modal.connect();
+        const provider = new ethers.providers.Web3Provider(connection);
+
         const contract = fetchContract(provider);
         const allCampaigns =await contract.getCampaigns();
         const accounts = await window.ethereum.request({
@@ -109,8 +116,12 @@ export const CrowdFundingprovider = ({children})=>{
     };
 
     const getDonations = async(pId)=>{
-        const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
+        // const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545/");
+        const web3Modal = new Web3Modal();
+        const connection = await web3Modal.connect();
+        const provider = new ethers.providers.Web3Provider(connection);
         const contract = fetchContract(provider);
+
         const donations = await contract.getDonators(pId);
         const numberOfDonations = donations[0].length;
         const parsedDonations = [];
