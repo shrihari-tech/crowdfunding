@@ -42,7 +42,7 @@ const Hero = ({titleData, createCampaign}) =>{
                         <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                             <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight
                             text-white sm:text-5xl sm:leading-none">
-                                Crypto Trnasfer <br className="hidden md:block"/>
+                                Crypto Transfer <br className="hidden md:block"/>
                                 Crowd Funding
                             </h2>
                             <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
@@ -119,7 +119,7 @@ const Hero = ({titleData, createCampaign}) =>{
                                         <label 
                                             htmlFor="email"
                                             className="inline-block mb-1 font-medium"
-                                        >Target amount
+                                        >Target Amount
                                         </label>
                                         <input 
                                             onChange={(e)=>setCampaign({
@@ -143,7 +143,7 @@ const Hero = ({titleData, createCampaign}) =>{
                                             htmlFor="email"
                                             className="inline-block mb-1 font-medium"
                                         >
-                                           Target Amount 
+                                           Target Date 
                                         </label>
                                         <input 
                                             onChange={(e)=>

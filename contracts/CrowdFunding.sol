@@ -38,7 +38,7 @@ contract CrowdFunding{
         Campaign storage campaign = campaigns[_id];
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
-
+        
         (bool sent,)= payable(campaign.owner).call{value : amount}("");
 
         if(sent){

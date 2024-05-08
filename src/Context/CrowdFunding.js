@@ -122,7 +122,7 @@ export const CrowdFundingprovider = ({children})=>{
         const provider = new ethers.providers.Web3Provider(connection);
         const contract = fetchContract(provider);
 
-        const donations = await contract.getDonators(pId);
+        const donations = await contract.getDonators(Number(pId));
         const numberOfDonations = donations[0].length;
         const parsedDonations = [];
         for(let i = 0;i<numberOfDonations;i++){

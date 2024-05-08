@@ -22,6 +22,7 @@ const Card=({allcampaign,setOpenModel,setDonate,title})=>{
                         className="cursor-pointer border overflow-hidden transition-shadow
                         duration-300 bg-white rounded"
                     >
+                        {console.log(campaign)}
                     <img 
                         src="https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?
                         auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
@@ -43,7 +44,8 @@ const Card=({allcampaign,setOpenModel,setDonate,title})=>{
                         <div className="flex space-x-4">
                             <p className="font-semibold">Target:{campaign[2]}ETH</p>
                             <p className="font-semibold">
-                                Raised:{campaign.amountCollected}ETH
+                                Raised:{Number(campaign[5]._hex)}ETH
+                                
                             </p>
                         </div>
                     </div>
