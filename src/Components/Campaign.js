@@ -81,14 +81,14 @@ const Campaign = () =>{
                 setOpenModel={setOpenModel}
                 setDonate={setDonateCampaign}
             /> */}
-            {openModel && (
+            {/* {openModel && (
                 <PopUp 
                     setOpenModel={setOpenModel}
                     getDonations={getDonations}
                     donate = {donateCampaign}
                     donateFunction = {donate}
                 />
-            )}
+            )} */}
         </div>
     );
 }

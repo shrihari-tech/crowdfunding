@@ -17,8 +17,8 @@ const Card=({allcampaign,setOpenModel,setDonate,title})=>{
             <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
                {allcampaign?.map((campaign,i)=>(
                     <div
-                        onClick={()=>(setDonate(campaign),setOpenModel(true))}
-                        key={i+1}
+                        // onClick={()=>(setDonate(campaign),setOpenModel(true))}
+                        // key={i+1}
                         className="cursor-pointer border overflow-hidden transition-shadow
                         duration-300 bg-white rounded"
                     >

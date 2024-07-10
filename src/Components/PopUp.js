@@ -9,7 +9,7 @@ const PopUp = ({setOpenModel,donate,donateFunction,getDonations})=>{
             const data = await donateFunction(donate.pId,Number(amount));
             console.log(data);
         }catch (error){
-            console.log(error);
+            // console.log(error);
         }
     };
 
@@ -18,7 +18,7 @@ const PopUp = ({setOpenModel,donate,donateFunction,getDonations})=>{
         return async ()=>{
             const donationData = await donationsListData;
             // setallDonationData(donationData);
-            console.log(donationData);
+            // console.log(donationData);
         };
     },[]);
     return(

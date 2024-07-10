@@ -17,7 +17,7 @@ const NavBar = () => {
             class="inline-flex items-center mr-8">
               <Logo color="text-white"/>
               <span class="ml-2 text-xl font-bold trancking-wide text-gray-100 uppercase">
-                Company
+                Dapp Funding
               </span>
             </a>
             <ul class="flex item-center hidden space-x-8 lg:flex">
