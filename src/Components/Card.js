@@ -15,7 +15,7 @@ const Card=({allcampaign,setOpenModel,setDonate,title})=>{
         md:px-24 lg:px-8 lg:py-20">
             <p className="py-16 text-2xl font-bold leading-5">{title}</p>
             <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-               {allcampaign?.map((campaign,i)=>(
+               {/* {allcampaign?.map((campaign,i)=>(
                     <div
                         // onClick={()=>(setDonate(campaign),setOpenModel(true))}
                         // key={i+1}
@@ -50,7 +50,28 @@ const Card=({allcampaign,setOpenModel,setDonate,title})=>{
                         </div>
                     </div>
                 </div>
-               ))}
+               ))} */}
+               {allcampaign?.map((campaign,i)=>(
+  <div key={i} className="cursor-pointer border overflow-hidden transition-shadow duration-300 bg-white rounded">
+    <img 
+      src="https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg"
+      className="object-cover w-full h-64 rounded"
+      alt=""
+    />
+    <div className="py-5 pl-2">
+      <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
+        Days Left: {daysLeft(campaign.deadline)}
+      </p>
+      <p className="text-2xl font-bold leading-5">{campaign.title}</p>
+      <p className="mb-4 text-gray-700">{campaign.description}</p>
+      <div className="flex space-x-4">
+        <p className="font-semibold">Target: {campaign.target} ETH</p>
+        <p className="font-semibold">Raised: {campaign.amountCollected} ETH</p>
+      </div>
+    </div>
+  </div>
+))}
+
             </div>
         </div>
     )

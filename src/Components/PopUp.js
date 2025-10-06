@@ -4,23 +4,42 @@ import React,{useState,useEffect} from "react";
 const PopUp = ({setOpenModel,donate,donateFunction,getDonations})=>{
     const [amount,setAmount] = useState("");
     const [allDonationData,setallDonationData] = useState();
-    const createDination = async()=>{
-        try{
-            const data = await donateFunction(donate.pId,Number(amount));
-            console.log(data);
-        }catch (error){
-            // console.log(error);
-        }
-    };
-
-    useEffect(()=>{
-        const donationsListData = getDonations(donate.pId);
-        return async ()=>{
-            const donationData = await donationsListData;
-            // setallDonationData(donationData);
-            // console.log(donationData);
+    // const createDination = async()=>{
+    //     try{
+    //         const data = await donateFunction(donate.pId,Number(amount));
+    //         console.log(data);
+    //     }catch (error){
+    //         // console.log(error);
+    //     }
+    // };
+        const createDination = async () => {
+            try {
+                // Make sure amount is a string
+                const data = await donateFunction(donate.pId, amount);
+                console.log(data);
+                // Optionally, refresh donation data after donating
+                const donationData = await getDonations(donate.pId);
+                setallDonationData(donationData);
+            } catch (error) {
+                console.log(error);
+            }
         };
-    },[]);
+
+    // useEffect(()=>{
+    //     const donationsListData = getDonations(donate.pId);
+    //     return async ()=>{
+    //         const donationData = await donationsListData;
+    //         // setallDonationData(donationData);
+    //         // console.log(donationData);
+    //     };
+    // },[]);
+useEffect(() => {
+    async function fetchDonations() {
+        const donationData = await getDonations(donate.pId);
+        setallDonationData(donationData);
+    }
+    fetchDonations();
+}, [donate.pId]);
     return(
         <>
             <div className="justify-center items-center flex overflow-x-hidden

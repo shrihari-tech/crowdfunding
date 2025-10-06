@@ -28,12 +28,17 @@ export const CrowdFundingprovider = ({children})=>{
 
         console.log(currentAccount);
         try{
+            if (!amount || isNaN(amount)) {
+                alert("Enter a valid target amount");
+                return;
+                }
             const transaction = await contract.createCampaign(
                 currentAccount,
                 title,
                 description,
                 ethers.utils.parseUnits(amount,18),
-                new Date(deadline).getTime()
+                // new Date(deadline).getTime()
+                Math.floor(new Date(deadline).getTime() / 1000)
             );
 
             await transaction.wait();
@@ -65,7 +70,9 @@ export const CrowdFundingprovider = ({children})=>{
             ),
             pId:i,
         }));
-        return campaigns;
+        // return campaigns;
+        return parsedCampaigns;
+
     };
 
     const getUserCampaigns = async()=>{
